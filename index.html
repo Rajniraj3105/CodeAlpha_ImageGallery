@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Professional responsive image gallery with search, filters, favorites and lightbox."
+    >
+
+    <title>Image Gallery | CodeAlpha</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            📸 Image Gallery
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                title="Change Theme"
+                aria-label="Change Theme"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-subtitle">
+            EXPLORE • DISCOVER • ENJOY
+        </div>
+
+
+        <h1>
+            Beautiful Moments
+        </h1>
+
+
+        <p>
+            Explore beautiful photographs from nature,
+            travel, animals, architecture and more.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search images..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="clearSearch"
+                class="clear-search"
+                title="Clear Search"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filters">
+
+
+        <button
+            class="filter-btn active"
+            data-category="all"
+        >
+            All
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="nature"
+        >
+            🌿 Nature
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="animals"
+        >
+            🐾 Animals
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="travel"
+        >
+            ✈️ Travel
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="architecture"
+        >
+            🏛️ Architecture
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="food"
+        >
+            🍴 Food
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="technology"
+        >
+            💻 Technology
+        </button>
+
+        <button
+            class="filter-btn"
+            data-category="other"
+        >
+            ✨ Other
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="favorites"
+        >
+            ❤️ Favorites
+        </button>
+
+    </div>
+
+
+    <!-- ================= UPLOAD IMAGES ================= -->
+
+    <section class="upload-section" aria-label="Upload images">
+
+        <label for="uploadCategory">Category</label>
+
+        <select id="uploadCategory">
+            <option value="nature">Nature</option>
+            <option value="animals">Animals</option>
+            <option value="travel">Travel</option>
+            <option value="architecture">Architecture</option>
+            <option value="food">Food</option>
+            <option value="technology">Technology</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            multiple
+            hidden
+        >
+
+        <button type="button" class="upload-btn" id="uploadBtn">
+            ＋ Add Images
+        </button>
+
+        <span id="uploadStatus" role="status" aria-live="polite"></span>
+
+    </section>
+
+
+    <!-- ================= RESULT INFO ================= -->
+
+    <div class="result-info">
+
+        <span id="resultCount">
+            Showing all images
+        </span>
+
+    </div>
+
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <main
+        class="gallery"
+        id="gallery"
+    >
+
+
+        <!-- IMAGE 1 -->
+
+        <article
+            class="gallery-item"
+            data-category="nature"
+            data-title="Mountain Escape"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85"
+                alt="Beautiful mountain landscape"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Mountain Escape
+                </h3>
+
+                <span>
+                    Nature
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 2 -->
+
+        <article
+            class="gallery-item"
+            data-category="nature"
+            data-title="Peaceful Lake"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85"
+                alt="Peaceful lake surrounded by mountains"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Peaceful Lake
+                </h3>
+
+                <span>
+                    Nature
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 3 -->
+
+        <article
+            class="gallery-item"
+            data-category="animals"
+            data-title="Cute Friend"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=85"
+                alt="Cute dog"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Cute Friend
+                </h3>
+
+                <span>
+                    Animals
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 4 -->
+
+        <article
+            class="gallery-item"
+            data-category="travel"
+            data-title="Travel Adventure"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85"
+                alt="Travel adventure landscape"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Travel Adventure
+                </h3>
+
+                <span>
+                    Travel
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 5 -->
+
+        <article
+            class="gallery-item"
+            data-category="architecture"
+            data-title="Modern Architecture"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern architectural building"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Modern Architecture
+                </h3>
+
+                <span>
+                    Architecture
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 6 -->
+
+        <article
+            class="gallery-item"
+            data-category="travel"
+            data-title="Natural Journey"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=85"
+                alt="Beautiful natural travel destination"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Natural Journey
+                </h3>
+
+                <span>
+                    Travel
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 7 -->
+
+        <article
+            class="gallery-item"
+            data-category="food"
+            data-title="Delicious Food"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=85"
+                alt="Delicious food on table"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Delicious Food
+                </h3>
+
+                <span>
+                    Food
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 8 -->
+
+        <article
+            class="gallery-item"
+            data-category="technology"
+            data-title="Modern Technology"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern technology and computer components"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Modern Technology
+                </h3>
+
+                <span>
+                    Technology
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 9 -->
+
+        <article
+            class="gallery-item"
+            data-category="animals"
+            data-title="Wild Nature"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1200&q=85"
+                alt="Wild animal in nature"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    Wild Nature
+                </h3>
+
+                <span>
+                    Animals
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- IMAGE 10 -->
+
+        <article
+            class="gallery-item"
+            data-category="architecture"
+            data-title="City Design"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern city architecture"
+                loading="lazy"
+            >
+
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+
+            <div class="image-info">
+
+                <h3>
+                    City Design
+                </h3>
+
+                <span>
+                    Architecture
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 11 -->
+
+        <article
+            class="gallery-item"
+            data-category="nature"
+            data-title="Golden Sunrise"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85"
+                alt="Golden sunrise over a misty field"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Golden Sunrise</h3>
+                <span>Nature</span>
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 12 -->
+
+        <article
+            class="gallery-item"
+            data-category="travel"
+            data-title="Coastal Escape"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85"
+                alt="Colorful coastal village by the sea"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Coastal Escape</h3>
+                <span>Travel</span>
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 13 -->
+
+        <article
+            class="gallery-item"
+            data-category="animals"
+            data-title="Fox in the Wild"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=85"
+                alt="Fox standing in a green forest"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Fox in the Wild</h3>
+                <span>Animals</span>
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 14 -->
+
+        <article
+            class="gallery-item"
+            data-category="food"
+            data-title="Fresh Garden Bowl"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85"
+                alt="Fresh colorful salad bowl"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Fresh Garden Bowl</h3>
+                <span>Food</span>
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 15 -->
+
+        <article
+            class="gallery-item"
+            data-category="architecture"
+            data-title="Urban Lines"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern skyscrapers reaching into the sky"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Urban Lines</h3>
+                <span>Architecture</span>
+            </div>
+
+        </article>
+
+
+        <!-- IMAGE 16 -->
+
+        <article
+            class="gallery-item"
+            data-category="technology"
+            data-title="Creative Workspace"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+                alt="Laptop and tools on a developer workspace"
+                loading="lazy"
+            >
+
+            <button
+                class="favorite-btn"
+                aria-label="Add to favorites"
+                title="Add to favorites"
+            >
+                ♡
+            </button>
+
+            <div class="image-info">
+                <h3>Creative Workspace</h3>
+                <span>Technology</span>
+            </div>
+
+        </article>
+
+
+
+        <!-- EMPTY RESULT -->
+
+        <div
+            class="empty-state"
+            id="emptyState"
+        >
+
+            <div class="empty-icon">
+                🔎
+            </div>
+
+            <h2>
+                No Images Found
+            </h2>
+
+            <p>
+                Try another search or category.
+            </p>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= LIGHTBOX ================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true"
+    >
+
+
+        <button
+            class="close-btn"
+            id="closeBtn"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="prev"
+            id="prevBtn"
+            aria-label="Previous image"
+        >
+            ‹
+        </button>
+
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Selected gallery image"
+        >
+
+
+        <button
+            class="next"
+            id="nextBtn"
+            aria-label="Next image"
+        >
+            ›
+        </button>
+
+
+        <h2 id="lightboxTitle">
+            Image Title
+        </h2>
+
+
+        <p id="lightboxCategory">
+            Category
+        </p>
+
+
+        <p id="imageCounter">
+            1 / 10
+        </p>
+
+
+        <!-- LIGHTBOX ACTIONS -->
+
+        <div class="lightbox-actions">
+
+
+            <button
+                id="lightboxFavorite"
+                class="action-btn"
+                title="Favorite"
+            >
+                ♡ Favorite
+            </button>
+
+
+            <a
+                id="downloadBtn"
+                class="action-btn"
+                href="#"
+                download
+            >
+                ⬇ Download
+            </a>
+
+
+            <button
+                id="shareBtn"
+                class="action-btn"
+            >
+                🔗 Share
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Image Gallery | CodeAlpha Frontend Development
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
